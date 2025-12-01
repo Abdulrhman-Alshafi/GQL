@@ -16,8 +16,11 @@ export const typeDefs = /* GraphQL */ `
     verified: Boolean!
   }
   type Query {
-    reviews: [Review!]
-    games: [Game!]
-    authors: [Author!]
+    reviews: [Review]
+    review(id: ID!): Review
+    games: [Game]
+    game(id: ID!): Game
+    authors: [Author]
+    author(id: ID!): Author
   }
 `;
