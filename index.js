@@ -2,10 +2,10 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
 //db
-import _db from "./_db";
+import _db from "./_db.js";
 
 //types
-import { typeDefs } from "./schema";
+import { typeDefs } from "./schema.js";
 
 const resolvers = {
   Query: {
@@ -24,10 +24,11 @@ const resolvers = {
 //server setup
 const server = new ApolloServer({
   typeDefs,
+  resolvers,
 });
 
 const { url } = await startStandaloneServer(server, {
-  listen: { post: 4000 },
+  listen: { port: 4000 },
 });
 
 console.log("Server ready at port", 4000);
